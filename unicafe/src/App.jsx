@@ -14,12 +14,21 @@ const Feedback = ({fbGood, fbNeutral, fbBad}) => {
 }
 
 const Statistics = ({nofGood, nofNeutral, nofBad}) => {
+  const total = nofGood + nofNeutral + nofBad
+  const _avg = ((nofGood - nofBad) / total) 
+  const avg = _avg ? _avg : 0
+  const _posPercentage = 100 * nofGood / total
+  const posPercentage = _posPercentage ? _posPercentage + " %" : "0 %"
+
   return (
     <div>
       <h1>Statistics:</h1>
       <p>good: {nofGood}</p>
       <p>neutral: {nofNeutral}</p>
       <p>bad: {nofBad}</p>
+      <p>all: {total}</p>
+      <p>average: {avg}</p>
+      <p>positive: {posPercentage}</p>
     </div>
   )
 }
