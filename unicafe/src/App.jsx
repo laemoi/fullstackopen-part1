@@ -20,17 +20,22 @@ const Statistics = ({nofGood, nofNeutral, nofBad}) => {
   const _posPercentage = 100 * nofGood / total
   const posPercentage = _posPercentage ? _posPercentage + " %" : "0 %"
 
-  return (
-    <div>
-      <h1>Statistics:</h1>
-      <p>good: {nofGood}</p>
-      <p>neutral: {nofNeutral}</p>
-      <p>bad: {nofBad}</p>
-      <p>all: {total}</p>
-      <p>average: {avg}</p>
-      <p>positive: {posPercentage}</p>
-    </div>
-  )
+  if (total !== 0) {
+    return (
+      <div>
+        <h1>Statistics:</h1>
+        <p>good: {nofGood}</p>
+        <p>neutral: {nofNeutral}</p>
+        <p>bad: {nofBad}</p>
+        <p>all: {total}</p>
+        <p>average: {avg}</p>
+        <p>positive: {posPercentage}</p>
+      </div>
+    )
+  }
+
+  return <p>No feedback given</p>
+  
 }
 
 const App = () => {
